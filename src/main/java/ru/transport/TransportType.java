@@ -1,3 +1,4 @@
+
 package ru.transport;
 
 public enum TransportType {

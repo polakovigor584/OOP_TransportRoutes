@@ -1,3 +1,4 @@
+
 package ru.transport;
 
 import java.util.Objects;
@@ -6,11 +7,13 @@ public class Stop {
     private final String name;
 
     public Stop(String name) {
-        this.name = Objects.requireNonNull(name, "Название остановки не может быть null");
+        Objects.requireNonNull(name, "Название остановки не может быть null");
 
         if (name.isBlank()) {
             throw new IllegalArgumentException("Название остановки не может быть пустым");
         }
+
+        this.name = name;
     }
 
     public String getName() {
@@ -18,21 +21,19 @@ public class Stop {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object object) {
+        if (this == object) {
             return true;
         }
-
-        if (!(o instanceof Stop other)) {
+        if (!(object instanceof Stop other)) {
             return false;
         }
-
         return name.equals(other.name);
     }
 
     @Override
     public int hashCode() {
-        return name.hashCode();
+        return Objects.hash(name);
     }
 
     @Override

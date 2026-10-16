@@ -1,3 +1,4 @@
+
 package ru.transport;
 
 import java.time.Duration;
@@ -13,10 +14,12 @@ public class RouteSegment {
         this.to = Objects.requireNonNull(to, "Конечная остановка не может быть null");
         this.travelTime = Objects.requireNonNull(travelTime, "Время движения не может быть null");
 
+        if (from.equals(to)) {
+            throw new IllegalArgumentException("Остановки должны различаться");
+        }
+
         if (travelTime.isZero() || travelTime.isNegative()) {
-            throw new IllegalArgumentException(
-                    "Время движения должно быть положительным"
-            );
+            throw new IllegalArgumentException("Время движения должно быть положительным");
         }
     }
 
