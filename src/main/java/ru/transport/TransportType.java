@@ -1,7 +1,10 @@
-
 package ru.transport;
 
+/**
+ * Тип транспорта. Перечисление с полями: средняя скорость и вместимость.
+ */
 public enum TransportType {
+
     BUS(40, 50),
     TROLLEYBUS(35, 60),
     TRAM(45, 150);
@@ -14,11 +17,6 @@ public enum TransportType {
         this.capacity = capacity;
     }
 
-    public int getAverageSpeed() {
-        return averageSpeed;
-    }
-
-    public int getCapacity() {
-        return capacity;
-    }
+    public int getAverageSpeed() { return averageSpeed; }
+    public int getCapacity()     { return capacity; }
 }

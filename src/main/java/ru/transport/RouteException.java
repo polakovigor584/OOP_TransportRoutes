@@ -1,7 +1,12 @@
+package ru.transport.exception;
 
-package ru.transport;
+/**
+ * Проверяемое исключение предметной области.
+ * Используется для ошибок, которые вызывающий код обязан обработать:
+ * дубликат маршрута, отсутствие прямого маршрута, остановка не в маршруте.
+ */
+public class RouteException extends Exception {
 
-public class RouteException extends RuntimeException {
     public RouteException(String message) {
         super(message);
     }

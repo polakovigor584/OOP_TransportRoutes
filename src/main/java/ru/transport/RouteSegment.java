@@ -1,10 +1,14 @@
-
 package ru.transport;
 
 import java.time.Duration;
 import java.util.Objects;
 
+/**
+ * Участок маршрута: от остановки {@code from} до остановки {@code to}
+ * с временем хода. Неизменяемое значение с валидацией в конструкторе.
+ */
 public class RouteSegment {
+
     private final Stop from;
     private final Stop to;
     private final Duration travelTime;
@@ -17,23 +21,14 @@ public class RouteSegment {
         if (from.equals(to)) {
             throw new IllegalArgumentException("Остановки должны различаться");
         }
-
         if (travelTime.isZero() || travelTime.isNegative()) {
             throw new IllegalArgumentException("Время движения должно быть положительным");
         }
     }
 
-    public Stop getFrom() {
-        return from;
-    }
-
-    public Stop getTo() {
-        return to;
-    }
-
-    public Duration getTravelTime() {
-        return travelTime;
-    }
+    public Stop getFrom()           { return from; }
+    public Stop getTo()             { return to; }
+    public Duration getTravelTime() { return travelTime; }
 
     @Override
     public String toString() {
